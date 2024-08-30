@@ -10,6 +10,7 @@ func UnaryInterceptor() grpc.ServerOption {
 	return grpc.UnaryInterceptor(
 		middleware.ChainUnaryServer(
 			unaryLogger,
+			unaryPanicRecoveryInterceptor(),
 		),
 	)
 }
@@ -19,6 +20,7 @@ func StreamInterceptor() grpc.ServerOption {
 	return grpc.StreamInterceptor(
 		middleware.ChainStreamServer(
 			streamLogger,
+			streamPanicRecoveryInterceptor(),
 		),
 	)
 }

@@ -20,7 +20,7 @@ import (
 	"github.com/vulpemventures/go-elements/transaction"
 	"github.com/vulpemventures/ocean/internal/core/domain"
 	"github.com/vulpemventures/ocean/internal/core/ports"
-	wallet "github.com/vulpemventures/ocean/pkg/wallet"
+	"github.com/vulpemventures/ocean/pkg/wallet"
 	singlesig "github.com/vulpemventures/ocean/pkg/wallet/single-sig"
 )
 
@@ -90,7 +90,9 @@ func (ts *TransactionService) GetTransactionInfo(
 		if err != nil {
 			return nil, err
 		}
-		tx = &res[0]
+		if len(res) != 0 {
+			tx = &res[0]
+		}
 	}
 	return (*TransactionInfo)(tx), nil
 }
