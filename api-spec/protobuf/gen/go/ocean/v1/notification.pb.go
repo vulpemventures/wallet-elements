@@ -680,7 +680,7 @@ type ListWebhooksResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// The list of info about the webhooks regitered for an action.
+	// The list of info about the webhooks registered for an action.
 	WebhookInfo []*WebhookInfo `protobuf:"bytes,1,rep,name=webhook_info,json=webhookInfo,proto3" json:"webhook_info,omitempty"`
 }
 
